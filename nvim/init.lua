@@ -11,7 +11,15 @@ require("mason").setup({
     },
   },
 })
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "lua_ls",
+    "rust_analyzer",
+    "gopls",
+    "golangci_lint_ls",
+    "asm_lsp",
+  },
+})
 
 local rt = require("rust-tools")
 
@@ -106,7 +114,7 @@ cmp.setup({
 })
 
 require("nvim-treesitter.configs").setup({
-  ensure_installed = { "lua", "rust", "toml" },
+  ensure_installed = { "lua", "rust", "toml", "go" },
   auto_install = true,
   highlight = {
     enabled = true,
