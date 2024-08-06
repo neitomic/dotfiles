@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.font = wezterm.font("Hack Nerd Font Mono")
-config.font_size = 13
+config.font_size = 14
 
 config.enable_tab_bar = true
 config.window_decorations = "RESIZE"

@@ -1,5 +1,8 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
+
+vim.opt.mouse = "a"
+
 local highlight = require("cmp.utils.highlight")
 
 require("mason").setup({
@@ -20,49 +23,6 @@ require("mason-lspconfig").setup({
     "asm_lsp",
   },
 })
-
-local rt = require("rust-tools")
-
-rt.setup({
-  server = {
-    on_attach = function(_, bufnr)
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
-})
-
-local sign = function(opts)
-  vim.fn.sign_define(opts.name, {
-    texthl = opts.name,
-    text = opts.text,
-    numhl = "",
-  })
-end
-
-sign({ name = "DiagnosticSignError", text = "" })
-sign({ name = "DiagnosticSignWarn", text = "" })
-sign({ name = "DiagnosticSignHint", text = "" })
-sign({ name = "DiagnosticSignInfo", text = "" })
-
-vim.diagnostic.config({
-  virtual_text = false,
-  signs = true,
-  update_in_insert = true,
-  underline = true,
-  severity_sort = false,
-  float = {
-    border = "rounded",
-    source = true,
-    header = "",
-    prefix = "",
-  },
-})
-
-vim.cmd([[
-set signcolumn=yes
-autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
-]])
 
 local cmp = require("cmp")
 cmp.setup({
@@ -98,32 +58,11 @@ cmp.setup({
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
-  format = {
-    fields = { "menu", "abbr", "kind" },
-    format = function(entry, item)
-      local menu_icon = {
-        nvim_lsp = "λ",
-        vsnip = "⋗",
-        buffer = "Ω",
-        path = "🖫",
-      }
-      item.menu = menu_icon[entry.source.name]
-      return item
-    end,
-  },
 })
 
-require("nvim-treesitter.configs").setup({
-  ensure_installed = { "lua", "rust", "toml", "go" },
-  auto_install = true,
-  highlight = {
-    enabled = true,
-    additional_vim_regex_highlighting = false,
-  },
-  ident = { enabled = true },
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-    max_file_lines = nil,
-  },
-})
+local telescope_builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, {})
+vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, {})
+vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, {})
+vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, {})
+vim.keymap.set("n", "<leader>fl", telescope_builtin.lsp_dynamic_workspace_symbols, {})
