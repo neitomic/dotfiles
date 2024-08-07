@@ -1,5 +1,7 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
+
+vim.opt.mouse = "a"
 local highlight = require("cmp.utils.highlight")
 
 require("mason").setup({
@@ -18,17 +20,6 @@ require("mason-lspconfig").setup({
     "gopls",
     "golangci_lint_ls",
     "asm_lsp",
-  },
-})
-
-local rt = require("rust-tools")
-
-rt.setup({
-  server = {
-    on_attach = function(_, bufnr)
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
   },
 })
 
@@ -100,30 +91,38 @@ cmp.setup({
   },
   format = {
     fields = { "menu", "abbr", "kind" },
-    format = function(entry, item)
-      local menu_icon = {
-        nvim_lsp = "λ",
-        vsnip = "⋗",
-        buffer = "Ω",
-        path = "🖫",
-      }
-      item.menu = menu_icon[entry.source.name]
-      return item
-    end,
   },
 })
 
 require("nvim-treesitter.configs").setup({
-  ensure_installed = { "lua", "rust", "toml", "go" },
+  ensure_installed = {
+    "c",
+    "lua",
+    "vim",
+    "vimdoc",
+    "query",
+    "markdown",
+    "rust",
+    "go",
+    "python",
+    "markdown",
+    "markdown_inline",
+  },
+  modules = {},
+  ignore_install = {},
+  sync_install = false,
   auto_install = true,
   highlight = {
     enabled = true,
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = true,
   },
-  ident = { enabled = true },
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-    max_file_lines = nil,
+  incremental_selection = {
+    enabled = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
   },
 })
