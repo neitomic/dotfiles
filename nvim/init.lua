@@ -42,3 +42,12 @@ vim.keymap.set("n", "<leader>fd", telescope_builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, {})
 vim.keymap.set("n", "<leader>fl", telescope_builtin.lsp_dynamic_workspace_symbols, {})
+
+require("toggleterm").setup({
+  open_mapping = [[<c-\>]],
+  direction = "float",
+})
+
+vim.keymap.set("n", "<leader>t", function()
+  vim.cmd([[ ToggleTerm ]])
+end)
