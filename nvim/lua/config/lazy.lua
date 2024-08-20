@@ -18,6 +18,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.lang.docker" },
+    { import = "lazyvim.plugins.extras.lang.terraform" },
     -- import/override with your plugins
     { import = "plugins" },
     { "akinsho/toggleterm.nvim", version = "*", config = true },

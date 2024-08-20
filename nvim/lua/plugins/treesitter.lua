@@ -13,6 +13,8 @@ return {
       "java",
       "scala",
       "sql",
+      "hcl",
+      "terraform",
     },
     auto_install = true,
     highlight = {
