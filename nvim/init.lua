@@ -1,40 +1,16 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
-vim.opt.mouse = "a"
-
-require("nvim-treesitter.configs").setup({
-  ensure_installed = {
-    "c",
-    "lua",
-    "vim",
-    "vimdoc",
-    "query",
-    "markdown",
-    "rust",
-    "go",
-    "python",
-    "markdown",
-    "markdown_inline",
+require("catppuccin").setup({
+  flavour = "macchiato", -- latte, frappe, macchiato, mocha
+  background = { -- :h background
+    light = "latte",
+    dark = "mocha",
   },
-  modules = {},
-  ignore_install = {},
-  sync_install = false,
-  auto_install = true,
-  highlight = {
-    enabled = true,
-    additional_vim_regex_highlighting = true,
-  },
-  incremental_selection = {
-    enabled = true,
-    keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
-    },
-  },
+  transparent_background = true, -- disables setting the background color.
 })
+
+vim.cmd.colorscheme("catppuccin")
 
 local telescope_builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, {})
@@ -48,6 +24,6 @@ require("toggleterm").setup({
   direction = "float",
 })
 
-vim.keymap.set("n", "<leader>t", function()
+vim.keymap.set("n", "<C-\\>", function()
   vim.cmd([[ ToggleTerm ]])
 end)
