@@ -53,8 +53,12 @@ return {
       "starlark",
       "rust",
       "terraform",
+<<<<<<< Updated upstream
       "toml",
       "solidity",
+=======
+      "asm",
+>>>>>>> Stashed changes
     },
     incremental_selection = {
       enable = true,

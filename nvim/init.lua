@@ -27,3 +27,9 @@ require("toggleterm").setup({
 vim.keymap.set("n", "<C-\\>", function()
   vim.cmd([[ ToggleTerm ]])
 end)
+
+vim.filetype.add({
+  extension = {
+    zkasm = "asm",
+  },
+})
