@@ -50,7 +50,7 @@ local config = {
 		bottom = 30,
 	},
 
-	window_background_opacity = 0.85,
+	window_background_opacity = 0.9,
 	macos_window_background_blur = 7,
 
 	status_update_interval = 1000,

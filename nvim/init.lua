@@ -1,17 +1,6 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
-require("catppuccin").setup({
-  flavour = "macchiato", -- latte, frappe, macchiato, mocha
-  background = { -- :h background
-    light = "latte",
-    dark = "mocha",
-  },
-  transparent_background = true, -- disables setting the background color.
-})
-
-vim.cmd.colorscheme("catppuccin")
-
 local telescope_builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, {})
 vim.keymap.set("n", "<leader>fd", telescope_builtin.live_grep, {})
