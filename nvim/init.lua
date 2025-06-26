@@ -8,6 +8,10 @@ vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, {})
 vim.keymap.set("n", "<leader>fl", telescope_builtin.lsp_dynamic_workspace_symbols, {})
 
+vim.keymap.set("n", "<leader>fa", function()
+  telescope_builtin.find_files({ follow = true, no_ignore = true, hidden = true })
+end, { desc = "Find all files including ignored and hidden" })
+
 require("toggleterm").setup({
   open_mapping = [[<c-\>]],
   direction = "float",
