@@ -27,6 +27,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.terraform" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.lang.java" },
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     -- import/override with your plugins
     { import = "plugins" },

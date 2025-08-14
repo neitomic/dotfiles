@@ -7,52 +7,45 @@ yabai -m config window_placement second_child
 # yabai -m active_window_opacity 1.0
 # yabai -m normal_window_opacity 0.90
 # Padding
-yabai -m config top_padding                  3
-yabai -m config bottom_padding               3
-yabai -m config left_padding                 3
-yabai -m config right_padding                3
-yabai -m config window_gap                   10
-yabai -m config auto_balance                 off
-yabai -m config split_ratio                  0.5
-yabai -m config window_shadow                off
-
+yabai -m config top_padding 3
+yabai -m config bottom_padding 3
+yabai -m config left_padding 3
+yabai -m config right_padding 3
+yabai -m config window_gap 5
+yabai -m config auto_balance off
+yabai -m config split_ratio 0.5
+yabai -m config window_shadow off
 
 #
 ## setup spaces
 #
-for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 6)'); do 
+for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 6)'); do
   yabai -m space --destroy 7
 done
 
 function setup_space {
-    local idx="$1"
-    local name="$2"
-    local space=
-    echo "setup space $idx: $name"
+  local idx="$1"
+  local name="$2"
+  local space=
+  echo "setup space $idx: $name"
 
-    space=$(yabai -m query --spaces --space "$idx")
-    if [ -z "$space" ]; then
-      yabai -m space --create
-    fi
+  space=$(yabai -m query --spaces --space "$idx")
+  if [ -z "$space" ]; then
+    yabai -m space --create
+  fi
 
-    yabai -m space "$idx" --label "$name"
+  yabai -m space "$idx" --label "$name"
 }
 
-
-setup_space 1 web 
-setup_space 2 code
+setup_space 1 social
+setup_space 2 web
 setup_space 3 terminal
-setup_space 4 social
+setup_space 4 code
 setup_space 5 media
 setup_space 6 other
 
-
-yabai -m rule --add app="^Google Chrome|Firefox$" space=1
-apps="^(IntelliJ IDEA|WebStorm|RubyMine|PyCharm|DataGrip)$"
-yabai -m rule --add app="${apps}" space=2  manage=off
-yabai -m rule --add app="^(Alacritty|Wezterm)$" space=3
-yabai -m rule --add app="^(Slack|WhatsApp|Microsoft Teams)$" space=4
-
+yabai -m rule --add app="^IntelliJ IDEA" manage=off
+yabai -m rule --add app="^IntelliJ IDEA$" title=".*\[(.*)\].*" manage=on
 
 # mouse settings
 # yabai -m config mouse_follows_focus on
@@ -66,4 +59,5 @@ yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
-
+yabai -m rule --add app="^Music$" manage=off
+yabai -m rule --add app="^Docker Desktop$" manage=off
