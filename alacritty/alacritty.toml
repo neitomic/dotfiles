@@ -7,7 +7,7 @@ TERM = "xterm-256color"
 padding.x = 10
 padding.y = 10
 
-decorations = "Full"
+decorations = "Buttonless"
 
 opacity = 0.9
 blur = true
@@ -15,6 +15,7 @@ blur = true
 option_as_alt = "Both"
 
 [font]
-normal.family = "Hack Nerd Font Mono"
-
+normal.family = "0xProto Nerd Font Mono"
 size = 14
+offset.y = 2
+glyph_offset.y = 1
