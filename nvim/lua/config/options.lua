@@ -5,7 +5,7 @@
 local opt = vim.opt
 opt.wrap = true
 
-vim.g.lazyvim_picker = "telescope"
-
+-- vim.g.lazyvim_picker = "telescope"
+vim.g.lazyvim_picker = "fzf"
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
