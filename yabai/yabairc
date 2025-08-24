@@ -6,10 +6,6 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 yabai -m config layout bsp
 yabai -m config window_placement second_child
 
-# yabai -m window_shadow on
-# yabai -m active_window_opacity 1.0
-# yabai -m normal_window_opacity 0.90
-# Padding
 yabai -m config top_padding 3
 yabai -m config bottom_padding 3
 yabai -m config left_padding 3
@@ -52,13 +48,10 @@ function setup_space {
 
 setup_space 1 social
 setup_space 2 web
-setup_space 3 terminal
-setup_space 4 code
+setup_space 3 code
+setup_space 4 termianl
 setup_space 5 media
 setup_space 6 other
-
-yabai -m rule --add app="^IntelliJ IDEA" manage=off
-yabai -m rule --add app="^IntelliJ IDEA$" title=".*\[(.*)\].*" manage=on
 
 # mouse settings
 # yabai -m config mouse_follows_focus on
@@ -66,6 +59,9 @@ yabai -m config mouse_modifier fn
 yabai -m config mouse_action1 move
 yabai -m config mouse_action2 resize
 yabai -m config mouse_drop_action swap
+
+yabai -m rule --add app="^IntelliJ IDEA" manage=off
+yabai -m rule --add app="^IntelliJ IDEA$" title=".*\[(.*)\].*" manage=on
 # Disable specific apps
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
@@ -76,5 +72,10 @@ yabai -m rule --add app="^Music$" manage=off
 yabai -m rule --add app="^Docker Desktop$" manage=off
 yabai -m rule --add app="Azure VPN Client" manage=off
 yabai -m rule --add app="Bitwarden" manage=off
+
+# yabai -m signal --add event=display_added action="~/.config/yabai/arrange_space.sh"
+# yabai -m signal --add event=display_removed action="~/.config/yabai/arrange_space.sh"
+
+# ~/.config/yabai/arrange_space.sh
 
 borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &

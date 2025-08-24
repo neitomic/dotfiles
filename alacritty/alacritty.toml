@@ -15,7 +15,9 @@ blur = true
 option_as_alt = "Both"
 
 [font]
-normal.family = "0xProto Nerd Font Mono"
+normal = { family = "CaskaydiaMono Nerd Font", style = "Regular" }
+bold = { family = "CaskaydiaMono Nerd Font", style = "Bold" }
+italic = { family = "CaskaydiaMono Nerd Font", style = "Italic" }
 size = 14
 offset.y = 2
 glyph_offset.y = 1
