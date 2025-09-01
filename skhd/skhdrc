@@ -37,6 +37,7 @@ shift + alt - 3: yabai -m window --space 3 --focus; yabai -m space --focus 3
 shift + alt - 4: yabai -m window --space 4 --focus; yabai -m space --focus 4
 shift + alt - 5: yabai -m window --space 5 --focus; yabai -m space --focus 5
 shift + alt - 6: yabai -m window --space 6 --focus; yabai -m space --focus 6
+shift + alt - 7: yabai -m window --space 7 --focus; yabai -m space --focus 7
 # focus monitor
 ctrl + alt - z : yabai -m display --focus next
 ctrl + alt - x : yabai -m display --focus prev
