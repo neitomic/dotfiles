@@ -51,7 +51,6 @@ setup_space 2 web
 setup_space 3 code
 setup_space 4 termianl
 setup_space 5 media
-setup_space 6 other
 
 # mouse settings
 # yabai -m config mouse_follows_focus on
@@ -72,6 +71,7 @@ yabai -m rule --add app="^Music$" manage=off
 yabai -m rule --add app="^Docker Desktop$" manage=off
 yabai -m rule --add app="Azure VPN Client" manage=off
 yabai -m rule --add app="Bitwarden" manage=off
+yabai -m rule --add app="Upwork" manage=off
 
 # yabai -m signal --add event=display_added action="~/.config/yabai/arrange_space.sh"
 # yabai -m signal --add event=display_removed action="~/.config/yabai/arrange_space.sh"
