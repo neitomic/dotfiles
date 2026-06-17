@@ -15,9 +15,8 @@ yabai -m config auto_balance off
 yabai -m config split_ratio 0.5
 yabai -m config window_shadow off
 
-yabai -m config mouse_follows_focus on
+yabai -m config mouse_follows_focus off
 yabai -m config window_zoom_persist on
-yabai -m config window_shadow on
 yabai -m config window_animation_duration 0.0
 yabai -m config window_animation_easing ease_out_circ
 yabai -m config window_opacity_duration 0.0
@@ -72,6 +71,7 @@ yabai -m rule --add app="^Docker Desktop$" manage=off
 yabai -m rule --add app="Azure VPN Client" manage=off
 yabai -m rule --add app="Bitwarden" manage=off
 yabai -m rule --add app="Upwork" manage=off
+yabai -m rule --add app="Telegram" manage=off
 
 # yabai -m signal --add event=display_added action="~/.config/yabai/arrange_space.sh"
 # yabai -m signal --add event=display_removed action="~/.config/yabai/arrange_space.sh"
