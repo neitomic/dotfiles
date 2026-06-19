@@ -4,21 +4,21 @@ theme = "Atom One Dark"
 macos-icon = xray
 macos-titlebar-style = tabs
 
-font-family = "CaskaydiaMono Nerd Font"
+font-family = "MonacoLigaturized Nerd Font Mono"
 font-thicken = false
-font-size = 16
+font-size = 14
+adjust-cell-height = 2
 
 mouse-hide-while-typing = true
 
 window-decoration = false
 window-save-state = always
 
-# background = 000000
 background-opacity = 0.9
 background-blur-radius = 20
 
 # keybinds
-keybind = global:cmd+s=toggle_quick_terminal
+# keybind = global:cmd+s=toggle_quick_terminal
 keybind = ctrl+h=goto_split:left
 keybind = ctrl+j=goto_split:bottom
 keybind = ctrl+k=goto_split:top
