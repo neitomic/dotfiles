@@ -14,11 +14,10 @@ mouse-hide-while-typing = true
 window-decoration = false
 window-save-state = always
 
-background-opacity = 0.9
+background-opacity = 0.95
 background-blur-radius = 20
 
 # keybinds
-# keybind = global:cmd+s=toggle_quick_terminal
 keybind = ctrl+h=goto_split:left
 keybind = ctrl+j=goto_split:bottom
 keybind = ctrl+k=goto_split:top
