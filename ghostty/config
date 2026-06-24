@@ -1,5 +1,6 @@
 term = xterm-256color
 theme = "Atom One Dark"
+background= #1e222a
 
 macos-icon = xray
 macos-titlebar-style = tabs
@@ -14,7 +15,7 @@ mouse-hide-while-typing = true
 window-decoration = false
 window-save-state = always
 
-background-opacity = 0.95
+background-opacity = 1
 background-blur-radius = 20
 
 # keybinds
