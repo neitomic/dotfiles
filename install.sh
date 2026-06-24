@@ -15,3 +15,4 @@ stow tmux -t ~/.config/tmux
 stow nvim -t ~/.config/nvim
 stow yabai -t ~/.config/yabai
 stow skhd -t ~/.config/skhd
+ln -s ~/dotfiles/ideavimrc ~/.ideavimrc
