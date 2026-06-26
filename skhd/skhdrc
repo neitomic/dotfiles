@@ -45,16 +45,31 @@ ctrl + alt - 1 : yabai -m display --focus 1
 ctrl + alt - 2 : yabai -m display --focus 2
 ctrl + alt - 3 : yabai -m display --focus 3
 ctrl + alt - 4 : yabai -m display --focus 4
-# increase window size
-shift + alt - a : yabai -m window --resize left:-20:0
-shift + alt - d : yabai -m window --resize right:-20:0
-shift + alt - w : yabai -m window --resize top:0:-20
-shift + alt - s : yabai -m window --resize bottom:0:20
-# decrease window size
-shift + cmd - s : yabai -m window --resize bottom:0:-20
-shift + cmd - w : yabai -m window --resize top:0:20
-shift + cmd - a : yabai -m window --resize left:20:0
-shift + cmd - d : yabai -m window --resize right:20:0
+
+:: resize : echo "resize mode on"; borders active_color=0xffff0000
+:: default : echo "resize mode off"; borders active_color=0xff7aa2f7
+
+# Enter / exit
+default < cmd + ctrl + shift - r ; resize
+resize < escape  ; default
+resize < q       ; default
+# same key toggles back out
+resize < cmd - r ; default
+
+# hjkl resize (stay in mode while pressing)
+resize < h : yabai -m window --resize right:-50:0 || yabai -m window --resize left:-50:0
+resize < l : yabai -m window --resize right:50:0  || yabai -m window --resize left:50:0
+resize < j : yabai -m window --resize bottom:0:50 || yabai -m window --resize top:0:50
+resize < k : yabai -m window --resize bottom:0:-50 || yabai -m window --resize top:0:-50
+
+# bigger steps with shift
+resize < shift - h : yabai -m window --resize right:-150:0 || yabai -m window --resize left:-150:0
+resize < shift - l : yabai -m window --resize right:150:0  || yabai -m window --resize left:150:0
+resize < shift - j : yabai -m window --resize bottom:0:150 || yabai -m window --resize top:0:150
+resize < shift - k : yabai -m window --resize bottom:0:-150 || yabai -m window --resize top:0:-150
+
+# re-balance all windows to equal size
+resize < 0 : yabai -m space --balance
 # toggle window split type
 alt - e : yabai -m window --toggle split
 
@@ -64,3 +79,13 @@ alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 alt - up : yabai -m window --resize top_left:-50:-50; yabai -m window --resize bottom_right:50:50
 # shrink floating window
 alt - down : yabai -m window --resize top_left:50:50; yabai -m window --resize bottom_right:-50:-50
+
+
+# Toggle Slack: hide if it's frontmost, otherwise bring it forward
+cmd + shift - s : osascript \
+  -e 'tell application "System Events" to set frontApp to name of first process whose frontmost is true' \
+  -e 'if frontApp is "Slack" then' \
+  -e 'tell application "System Events" to set visible of process "Slack" to false' \
+  -e 'else' \
+  -e 'tell application "Slack" to activate' \
+  -e 'end if'
