@@ -82,10 +82,5 @@ alt - down : yabai -m window --resize top_left:50:50; yabai -m window --resize b
 
 
 # Toggle Slack: hide if it's frontmost, otherwise bring it forward
-cmd + shift - s : osascript \
-  -e 'tell application "System Events" to set frontApp to name of first process whose frontmost is true' \
-  -e 'if frontApp is "Slack" then' \
-  -e 'tell application "System Events" to set visible of process "Slack" to false' \
-  -e 'else' \
-  -e 'tell application "Slack" to activate' \
-  -e 'end if'
+cmd + shift - s : ~/.config/skhd/toggle-app.sh "Slack"
+
