@@ -18,4 +18,4 @@ stow skhd -t ~/.config/skhd
 ln -s ~/dotfiles/ideavimrc ~/.ideavimrc
 
 # useful to access obsidian files directly
-ln -s "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/NEITOMIC/NEITOMIC" ~/obsidian
+ln -s "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/NEITOMIC/NEITOMIC" ~/obsidian
