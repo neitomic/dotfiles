@@ -83,4 +83,5 @@ alt - down : yabai -m window --resize top_left:50:50; yabai -m window --resize b
 
 # Toggle Slack: hide if it's frontmost, otherwise bring it forward
 cmd + shift - s : ~/.config/skhd/toggle-app.sh "Slack"
+cmd + shift - n : ~/.config/skhd/toggle-app.sh "Obsidian"
 
